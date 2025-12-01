@@ -46,7 +46,7 @@ runs:
       env:
         AWS_ACCOUNT_ID: ${{ inputs.aws-account-id }}
       run: |
-        aws eks --region us-east-1 update-kubeconfig \
+        aws eks --region ${{ env.AWS_DEFAULT_REGION }} update-kubeconfig \
           --name ${{ env.K8S_CLUSTER }}
 
     - name: Setup kubectl
